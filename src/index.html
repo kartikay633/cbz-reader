@@ -4,13 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CBZ Reader</title>
-  <meta name="description" content="Read .cbz comic book files right in your browser.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='3' width='24' height='26' rx='3' fill='%23ff6b4a'/><rect x='8' y='7' width='16' height='8' rx='1' fill='%23fff'/><rect x='8' y='17' width='7' height='8' rx='1' fill='%23fff'/><rect x='17' y='17' width='7' height='8' rx='1' fill='%23fff'/></svg>">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob:">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <input type="file" id="file-input" accept=".cbz,.zip,application/vnd.comicbook+zip,application/zip" hidden>
-
   <section id="welcome">
     <div class="drop">
       <h1>CBZ Reader</h1>
@@ -19,7 +16,7 @@
         <button class="btn primary" id="btn-open-welcome">Open .cbz file</button>
         <button class="btn" id="btn-sample">Try a sample</button>
       </div>
-      <p class="hint">…or drop a file anywhere on this page.</p>
+      <p class="hint">…or drop a file onto this window. <kbd>Ctrl</kbd>+<kbd>O</kbd> opens a file any time.</p>
       <p class="error" id="error" role="alert"></p>
     </div>
   </section>
@@ -65,7 +62,7 @@
   <div id="loading" hidden><div class="spinner"></div><span></span></div>
   <div id="toast" hidden></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="../node_modules/jszip/dist/jszip.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

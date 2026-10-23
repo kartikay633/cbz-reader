@@ -11,7 +11,6 @@ const FITS = ['screen', 'width', 'original'];
 const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
 const $ = (sel) => document.querySelector(sel);
-const fileInput = $('#file-input');
 const welcome = $('#welcome');
 const reader = $('#reader');
 const stage = $('#stage');
@@ -55,10 +54,6 @@ let thumbObserver = null;
 
 async function openFile(file, name = file?.name) {
   if (!file) return;
-  if (typeof JSZip === 'undefined') {
-    showError('Could not load the ZIP library. Check your internet connection and reload the page.');
-    return;
-  }
   showError('');
   setLoading(`Opening ${name}…`);
   try {
@@ -92,7 +87,6 @@ async function openFile(file, name = file?.name) {
     showError(`Couldn't open “${name}”: ${err.message}`);
   } finally {
     setLoading(null);
-    fileInput.value = '';
   }
 }
 
@@ -403,24 +397,16 @@ function toggleFullscreen() {
   else document.documentElement.requestFullscreen?.().catch(() => {});
 }
 
-async function openSample() {
-  setLoading('Downloading sample…');
-  try {
-    const res = await fetch('sample/sample.cbz');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    await openFile(await res.blob(), 'sample.cbz');
-  } catch (err) {
-    setLoading(null);
-    showError(`Couldn't load the sample (${err.message}). If you opened index.html directly from disk, serve the folder over HTTP instead.`);
-  }
-}
-
 // ---------- Events ----------
 
-$('#btn-open-welcome').addEventListener('click', () => fileInput.click());
-$('#btn-open').addEventListener('click', () => fileInput.click());
-$('#btn-sample').addEventListener('click', openSample);
-fileInput.addEventListener('change', () => openFile(fileInput.files[0]));
+// window.cbz is provided by the desktop app (electron/preload.js).
+cbz.onOpenFile(({ name, data }) => openFile(new Blob([data]), name));
+cbz.onCloseBook(() => {
+  if (!reader.hidden) showWelcome();
+});
+$('#btn-open-welcome').addEventListener('click', cbz.openDialog);
+$('#btn-open').addEventListener('click', cbz.openDialog);
+$('#btn-sample').addEventListener('click', cbz.openSample);
 
 $('#btn-close').addEventListener('click', showWelcome);
 $('#btn-grid').addEventListener('click', openGrid);

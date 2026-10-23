@@ -61,6 +61,14 @@ button[aria-pressed="true"] { background: var(--accent); border-color: var(--acc
 .drop code { color: var(--text); }
 .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
 .hint { font-size: 13px; }
+kbd {
+  font: inherit;
+  font-size: 12px;
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text);
+}
 .error { color: #ff8a80; margin: 0; }
 .error:empty { display: none; }
 

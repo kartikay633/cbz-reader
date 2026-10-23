@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBZ Reader</title>
+  <meta name="description" content="Read .cbz comic book files right in your browser.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='3' width='24' height='26' rx='3' fill='%23ff6b4a'/><rect x='8' y='7' width='16' height='8' rx='1' fill='%23fff'/><rect x='8' y='17' width='7' height='8' rx='1' fill='%23fff'/><rect x='17' y='17' width='7' height='8' rx='1' fill='%23fff'/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <input type="file" id="file-input" accept=".cbz,.zip,application/vnd.comicbook+zip,application/zip" hidden>
+
+  <section id="welcome">
+    <div class="drop">
+      <h1>CBZ Reader</h1>
+      <p>Open a comic book archive (<code>.cbz</code>) and read it page by page.<br>Your file never leaves your device.</p>
+      <div class="actions">
+        <button class="btn primary" id="btn-open-welcome">Open .cbz file</button>
+        <button class="btn" id="btn-sample">Try a sample</button>
+      </div>
+      <p class="hint">…or drop a file anywhere on this page.</p>
+      <p class="error" id="error" role="alert"></p>
+    </div>
+  </section>
+
+  <section id="reader" hidden>
+    <header class="bar" id="toolbar">
+      <button id="btn-close" title="Close book">✕</button>
+      <div id="title"></div>
+      <select id="mode" title="Reading mode">
+        <option value="single">Single page</option>
+        <option value="double">Two pages</option>
+        <option value="scroll">Vertical scroll</option>
+      </select>
+      <select id="fit" title="Page size">
+        <option value="screen">Fit screen</option>
+        <option value="width">Fit width</option>
+        <option value="original">Original size</option>
+      </select>
+      <button id="btn-rtl" aria-pressed="false" title="Right-to-left (manga) reading">Manga</button>
+      <button id="btn-grid" title="All pages (G)">Pages</button>
+      <button id="btn-full" title="Fullscreen (F)">Fullscreen</button>
+      <button id="btn-open" title="Open another file">Open…</button>
+    </header>
+
+    <main id="stage" tabindex="-1"></main>
+
+    <footer class="bar" id="bottombar">
+      <button id="btn-left" title="Previous page">‹</button>
+      <input type="range" id="slider" min="1" max="1" value="1" aria-label="Page">
+      <span id="counter"></span>
+      <button id="btn-right" title="Next page">›</button>
+    </footer>
+
+    <div id="grid" hidden>
+      <div class="grid-head">
+        <strong>All pages</strong>
+        <button id="btn-grid-close" title="Close (Esc)">✕</button>
+      </div>
+      <div id="thumbs"></div>
+    </div>
+  </section>
+
+  <div id="loading" hidden><div class="spinner"></div><span></span></div>
+  <div id="toast" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

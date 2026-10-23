@@ -74,7 +74,7 @@ Start CBZ Reader.bat  one-click launcher (downloads the latest release on first 
 electron/main.js      app window, menus, file opening, single-instance handling
 electron/preload.js   the small API the page uses (window.cbz)
 src/                  the reader UI: index.html, style.css, app.js
-sample/sample.cbz     demo comic behind the "Try a sample" button
+sample/sample.cbz     small demo comic for trying the app
 build/icon.png        app icon
 tools/make_sample.py  regenerates the demo comic (needs Pillow)
 ```

@@ -406,7 +406,6 @@ cbz.onCloseBook(() => {
 });
 $('#btn-open-welcome').addEventListener('click', cbz.openDialog);
 $('#btn-open').addEventListener('click', cbz.openDialog);
-$('#btn-sample').addEventListener('click', cbz.openSample);
 
 $('#btn-close').addEventListener('click', showWelcome);
 $('#btn-grid').addEventListener('click', openGrid);

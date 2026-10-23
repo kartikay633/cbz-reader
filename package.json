@@ -1,6 +1,6 @@
 {
   "name": "cbz-reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A desktop app for reading .cbz comic book files.",
   "main": "electron/main.js",
   "author": "kartikay633",
@@ -16,7 +16,6 @@
     "files": [
       "electron/**",
       "src/**",
-      "sample/**",
       "build/icon.png"
     ],
     "directories": {

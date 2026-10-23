@@ -125,7 +125,6 @@ function buildMenu() {
 }
 
 ipcMain.on('open-dialog', showOpenDialog);
-ipcMain.on('open-sample', () => sendFile(path.join(__dirname, '..', 'sample', 'sample.cbz')));
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();

@@ -8,9 +8,12 @@ page by page. Built with Electron; works offline and never uploads your files.
 1. Clone or download this repo.
 2. Double-click **`Start CBZ Reader.bat`**.
 
-That's it. The first time, it downloads the ready-made app (about 110 MB) into an `app\` folder
-next to it; after that it opens straight away. No Node.js or other tools needed.
-Tip: drag a `.cbz` file onto `Start CBZ Reader.bat` to open it directly.
+That's it. The first time, it downloads and installs CBZ Reader (about 110 MB, no admin rights
+needed) and opens it. After that you'll find **CBZ Reader** in the Start menu and Windows search,
+and double-clicking any `.cbz` file opens it. No Node.js or other tools needed.
+
+Running `Start CBZ Reader.bat` again just opens the installed app. To uninstall, use
+**Settings → Apps → Installed apps → CBZ Reader**.
 
 ## Download without cloning
 
@@ -70,7 +73,7 @@ tool fails when paths exceed 260 characters.)
 ## Project layout
 
 ```
-Start CBZ Reader.bat  one-click launcher (downloads the latest release on first run)
+Start CBZ Reader.bat  one-click launcher (installs the latest release on first run)
 electron/main.js      app window, menus, file opening, single-instance handling
 electron/preload.js   the small API the page uses (window.cbz)
 src/                  the reader UI: index.html, style.css, app.js

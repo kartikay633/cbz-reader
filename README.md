@@ -17,11 +17,8 @@ Running `Start CBZ Reader.bat` again just opens the installed app. To uninstall,
 
 ## Download without cloning
 
-Grab one of these from the [Releases page](https://github.com/kartikay633/cbz-reader/releases/latest):
-
-- **CBZ-Reader-Setup.exe**: installer. Adds a Start menu shortcut and lets you open
-  `.cbz` files by double-clicking them.
-- **CBZ-Reader-portable.exe**: no install, just run it.
+Download **CBZ-Reader-Setup.exe** from the [Releases page](https://github.com/kartikay633/cbz-reader/releases/latest)
+and run it. It adds CBZ Reader to the Start menu and lets you open `.cbz` files by double-clicking them.
 
 If you download an `.exe` in your browser, Windows SmartScreen may warn you the first time
 because the app isn't code-signed. Click **More info → Run anyway**.
@@ -61,7 +58,7 @@ npm install
 npm start
 ```
 
-Build the Windows installer and portable `.exe` into `dist/`:
+Build the Windows installer into `dist/`:
 
 ```bash
 npm run dist

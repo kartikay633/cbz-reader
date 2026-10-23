@@ -32,8 +32,7 @@
     ],
     "win": {
       "target": [
-        "nsis",
-        "portable"
+        "nsis"
       ],
       "icon": "build/icon.png"
     },
@@ -41,9 +40,6 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "artifactName": "CBZ-Reader-Setup.${ext}"
-    },
-    "portable": {
-      "artifactName": "CBZ-Reader-portable.${ext}"
     },
     "mac": {
       "target": "dmg",

@@ -41,10 +41,10 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "artifactName": "CBZ-Reader-Setup-${version}.${ext}"
+      "artifactName": "CBZ-Reader-Setup.${ext}"
     },
     "portable": {
-      "artifactName": "CBZ-Reader-${version}-portable.${ext}"
+      "artifactName": "CBZ-Reader-portable.${ext}"
     },
     "mac": {
       "target": "dmg",

@@ -3,16 +3,25 @@
 A small desktop app for reading `.cbz` comic book files. Double-click a comic and read it,
 page by page. Built with Electron; works offline and never uploads your files.
 
-## Download (Windows)
+## Quick start (Windows)
 
-Get the latest version from the [Releases page](https://github.com/kartikay633/cbz-reader/releases/latest):
+1. Clone or download this repo.
+2. Double-click **`Start CBZ Reader.bat`**.
 
-- **CBZ-Reader-Setup-x.y.z.exe**: installer. Adds a Start menu shortcut and lets you open
+That's it. The first time, it downloads the ready-made app (about 110 MB) into an `app\` folder
+next to it; after that it opens straight away. No Node.js or other tools needed.
+Tip: drag a `.cbz` file onto `Start CBZ Reader.bat` to open it directly.
+
+## Download without cloning
+
+Grab one of these from the [Releases page](https://github.com/kartikay633/cbz-reader/releases/latest):
+
+- **CBZ-Reader-Setup.exe**: installer. Adds a Start menu shortcut and lets you open
   `.cbz` files by double-clicking them.
-- **CBZ-Reader-x.y.z-portable.exe**: no install, just run it.
+- **CBZ-Reader-portable.exe**: no install, just run it.
 
-The app isn't code-signed, so Windows SmartScreen may warn you the first time.
-Click **More info → Run anyway**.
+If you download an `.exe` in your browser, Windows SmartScreen may warn you the first time
+because the app isn't code-signed. Click **More info → Run anyway**.
 
 ## Features
 
@@ -40,7 +49,7 @@ Click **More info → Run anyway**.
 | Hide / show toolbars | `H`, or click the middle of the page |
 | Close the book | `Ctrl+W` |
 
-## Run from source
+## Run from source (for developers)
 
 Needs [Node.js](https://nodejs.org/) 20 or newer.
 
@@ -61,6 +70,7 @@ tool fails when paths exceed 260 characters.)
 ## Project layout
 
 ```
+Start CBZ Reader.bat  one-click launcher (downloads the latest release on first run)
 electron/main.js      app window, menus, file opening, single-instance handling
 electron/preload.js   the small API the page uses (window.cbz)
 src/                  the reader UI: index.html, style.css, app.js
